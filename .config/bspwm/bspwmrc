@@ -4,7 +4,8 @@
 autorandr -c $(autorandr | grep "(detected)" | sed "s/ (detected)//")
 
 picom --experimental-backends & # Compositor
-~/.config/polybar/launch.sh & # Status bar
+#~/.config/polybar/launch.sh & # Status bar
+#polybar eDP1 &
 xsetroot -cursor_name left_ptr & # X cursor fix
 dunst & # Notifications
 feh --bg-fill ~/Pictures/Wallpapers/space-neon.jpg & # Wallpaper
