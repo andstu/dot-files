@@ -127,6 +127,7 @@ endif
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
