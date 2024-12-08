@@ -1,0 +1,8 @@
+[user]
+	name = Andrew Teeter
+	email = andstu.dev@gmail.com
+	signingkey = /home/andstu/.ssh/github.pub
+[gpg]
+	format = ssh
+[init]
+	defaultBranch = main
