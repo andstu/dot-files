@@ -46,7 +46,13 @@ return {
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
-    },
+    providers = {
+     lsp = {
+       name = 'LSP',
+       module = 'blink.cmp.sources.lsp',
+    }
+}
+   }
   },
   opts_extend = { "sources.default" }
 },
@@ -175,13 +181,15 @@ return {
   end,
 },
 	{ "williamboman/mason-lspconfig.nvim", 
-	  dependencies = { 'saghen/blink.cmp', 'williamboman/mason.nvim' },
+	  dependencies = { 'saghen/blink.cmp', 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
 	  config = function()
-			   end,
-	  handler = function(server_name)
-					printf('setting up %s', server_name)
-					require('lspconfig')[server_name].setup({})
+				require('mason-lspconfig').setup_handlers {
+	  			function(server_name) -- Default handler
+					local lsp_capabilities = require('blink.cmp').get_lsp_capabilities()
+					require('lspconfig')[server_name].setup({ capabilities = lsp_capabilities })
 				end,
+			}
+			   end,
 	},
 {
   "echasnovski/mini.comment",
