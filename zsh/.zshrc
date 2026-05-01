@@ -104,4 +104,13 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-. "$HOME/.local/bin/env"
+source $HOME/.zshrc_local
+
+fpath=($HOME/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
+
+source $HOME/.zellij-agents.zsh
