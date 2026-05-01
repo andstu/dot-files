@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/Code ~/ -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+
+# Check if already inside a zellij session
+if [[ -n "$ZELLIJ" ]]; then
+    zellij action switch-session --cwd "$selected" \
+        --layout "$HOME/.config/zellij/layouts/session.kdl" "$selected_name"
+else
+    # Outside zellij: attach or create
+    if zellij list-sessions --short 2>/dev/null | grep -qx "$selected_name"; then
+        zellij attach "$selected_name"
+    else
+        cd "$selected" && zellij --session "$selected_name" --new-session-with-layout agents
+    fi
+fi
