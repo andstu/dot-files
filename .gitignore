@@ -1,0 +1,18 @@
+# Machine-specific symlinks managed by uv, cursor, claude, etc.
+tmux/.local/bin/agent
+tmux/.local/bin/cao
+tmux/.local/bin/cao-mcp-server
+tmux/.local/bin/cao-server
+tmux/.local/bin/claude
+tmux/.local/bin/cookiecutter
+tmux/.local/bin/cursor-agent
+tmux/.local/bin/keyring
+tmux/.local/bin/litellm
+tmux/.local/bin/litellm-proxy
+tmux/.local/bin/maturin
+tmux/.local/bin/python3.11
+tmux/.local/bin/stickytape
+tmux/.local/bin/uvicorn
+
+# Plugin binaries (installed via curl, not checked in)
+zellij/.config/zellij/plugins/*.wasm
