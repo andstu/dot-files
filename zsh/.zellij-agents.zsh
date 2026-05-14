@@ -117,4 +117,8 @@ for t in tabs:
     zellij action write-chars --pane-id "$pane_id" "$text"
     zellij action write 13 --pane-id "$pane_id"
   }
+
+  pr-review() {
+    ~/.cursor/skills/pr-review/scripts/pr-review.sh "$@"
+  }
 fi

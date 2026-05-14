@@ -1,0 +1,24 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane split_direction="vertical" {
+        pane stacked=true size="60%" {
+            pane name="editor" expanded=true {
+                command "nvim"
+                args "."
+            }
+            pane name="diff" {
+                command "gh"
+                args "pr" "diff" "__PR_NUMBER__" "-R" "__REPO__"
+            }
+            pane name="terminal"
+        }
+        pane name="agent" size="40%" {
+            command "__AGENT_SCRIPT__"
+        }
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}
