@@ -98,7 +98,7 @@ expiresAt: null
 - [ ] Tests pass (if applicable)
 ```
 
-Commit the `.backlogmd/` scaffold to the current branch before spawning.
+Add `.backlogmd/` to the repo's `.gitignore` if it isn't already listed. Do **not** commit the backlog directory—it stays local to the root worktree.
 
 ### Step 3: Spawn agents (max 5 at a time)
 
@@ -135,10 +135,9 @@ When the user says "next" (or similar):
 
 1. For each agent tab that has completed:
    - Check if the worktree branch has new commits
-   - Update the task file: `status: done`, clear `assignee`, check acceptance criteria
+   - Update the task file in the root repo's `.backlogmd/`: `status: done`, clear `assignee`, check acceptance criteria
 2. Run `spawn-agents.sh spawn` for the next batch of `open` tasks (up to 5)
-3. Commit status changes
-4. Report progress: how many done, how many remaining
+3. Report progress: how many done, how many remaining
 
 ### Step 5: Cleanup
 

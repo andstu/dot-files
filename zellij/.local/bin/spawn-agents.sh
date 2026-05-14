@@ -56,6 +56,9 @@ build_prompt() {
     context=$(sed -n '/<!-- CONTEXT -->/,$ { /<!-- CONTEXT -->/d; p; }' "$index_file")
   fi
 
+  local root
+  root="$(repo_root)"
+
   local prompt="Task: ${task_desc}"
 
   if [[ -n "$context" ]]; then
@@ -64,9 +67,10 @@ build_prompt() {
 Context: ${context}"
   fi
 
-  # reference AGENTS.md or CLAUDE.md if they exist in the repo
-  local root
-  root="$(repo_root)"
+  prompt="${prompt}
+
+Work items live in the root repository at ${root}/.backlogmd/ — reference that path to view or update task status."
+
   for f in AGENTS.md CLAUDE.md; do
     if [[ -f "${root}/${f}" ]]; then
       prompt="${prompt}
