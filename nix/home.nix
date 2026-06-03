@@ -15,18 +15,17 @@
       isDefault = true;
 
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin       # ad + tracker blocking
-        privacy-badger      # EFF's behavioral tracker blocker
-        clearurls           # strips tracking params from URLs (utm_*, fbclid, etc.)
-        localcdn            # serves common CDN libs locally; prevents CDN tracking
-        canvasblocker       # spoofs canvas/WebGL fingerprints
-        bitwarden           # password manager
-        multi-account-containers # isolates sites into cookie-separated containers
+        ublock-origin # ad + tracker blocking
+        bitwarden     # password manager
       ];
 
       settings = {
         # Auto-enable nix-installed extensions (required for declarative management)
         "extensions.autoDisableScopes" = 0;
+
+        # --- Vertical tabs ---
+        "sidebar.revamp"       = true;
+        "sidebar.verticalTabs" = true;
 
         # --- Telemetry & data collection ---
         "toolkit.telemetry.unified"                                  = false;
