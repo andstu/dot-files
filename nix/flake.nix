@@ -11,6 +11,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs =
@@ -19,6 +20,7 @@
       nixpkgs,
       nix-darwin,
       home-manager,
+      nur,
       ...
     }:
     {
@@ -29,6 +31,7 @@
             ./configuration.nix
             home-manager.darwinModules.home-manager
             {
+              nixpkgs.overlays = [ nur.overlays.default ];
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.andstu = import ./home.nix;

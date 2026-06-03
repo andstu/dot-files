@@ -19,6 +19,11 @@
 
   programs.zsh.enable = true;
 
+  users.users.andstu = {
+    name = "andstu";
+    home = "/Users/andstu";
+  };
+
   system.primaryUser = "andstu";
 
   # Do not change — tracks activation script compatibility
