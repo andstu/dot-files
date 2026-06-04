@@ -14,13 +14,27 @@
 
     # System
     htop
+
+    # Editor / multiplexer
+    neovim
+    zellij
+
+    # Cursor editor (provides the `cursor` CLI)
+    code-cursor
   ];
 
   programs.git = {
     enable = true;
-    extraConfig = {
+    settings = {
       init.defaultBranch = "main";
       pull.rebase = true;
+    };
+  };
+
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
     };
   };
 }

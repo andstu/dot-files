@@ -2,6 +2,12 @@
 
 # GUI apps — import on personal Mac only. Not for WSL or work-mac.
 {
+  home.packages = with pkgs; [
+    spotify
+    discord
+    signal-desktop
+  ];
+
   programs.firefox = {
     enable = true;
     profiles.default = {
