@@ -15,8 +15,9 @@
       isDefault = true;
 
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin # ad + tracker blocking
-        bitwarden     # password manager
+        ublock-origin                  # ad + tracker blocking
+        bitwarden                      # password manager
+        duckduckgo-privacy-essentials  # DDG search + tracker protection
       ];
 
       settings = {
