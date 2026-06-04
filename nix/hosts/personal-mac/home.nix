@@ -1,0 +1,16 @@
+{ ... }:
+
+{
+  imports = [
+    ../../modules/home/cli.nix
+    ../../modules/home/gui.nix
+    ../../modules/home/personal.nix
+    ../../modules/home/macos.nix
+  ];
+
+  home.username = "andstu";
+  home.homeDirectory = "/Users/andstu";
+  home.stateVersion = "26.05";
+
+  programs.home-manager.enable = true;
+}
