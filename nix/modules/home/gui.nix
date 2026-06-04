@@ -2,10 +2,10 @@
 
 # GUI apps — import on personal Mac only. Not for WSL or work-mac.
 {
+  # Note: signal is installed via Homebrew (see hosts/personal-mac/configuration.nix)
   home.packages = with pkgs; [
     spotify
     discord
-    signal-desktop
   ];
 
   programs.firefox = {
