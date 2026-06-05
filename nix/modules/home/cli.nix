@@ -15,6 +15,9 @@
     # System
     htop
 
+    # Dotfiles
+    stow
+
     # Editor / multiplexer
     neovim
     zellij
