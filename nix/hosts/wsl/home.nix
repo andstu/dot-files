@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/home/cli.nix
+    ../../modules/home/dotfiles.nix
     ../../modules/home/personal.nix
   ];
 

@@ -2,8 +2,11 @@
 # bootstrap.sh — run once on a new Mac to set up nix-darwin + Homebrew.
 #
 # Usage:
-#   ./bootstrap.sh                  # auto-detects hostname
-#   ./bootstrap.sh personal-mac     # or pass a flake target explicitly
+#   ./bootstrap.sh                        # auto-detects LocalHostName
+#   ./bootstrap.sh Andstus-Dev-Machine    # or pass the flake output name explicitly
+#
+# The flake output name is `scutil --get LocalHostName`, NOT the hosts/ directory
+# name (e.g. personal-mac). See nix/flake.nix → darwinConfigurations.
 #
 # After the first run, use darwin-rebuild switch for all future updates.
 
@@ -24,7 +27,13 @@ fi
 
 # ── 2. nix-darwin ──────────────────────────────────────────────────────────────
 echo "==> Running darwin-rebuild switch for host: $HOSTNAME"
-sudo darwin-rebuild switch --flake "$FLAKE#$HOSTNAME"
+
+if command -v darwin-rebuild &>/dev/null; then
+  sudo darwin-rebuild switch --flake "$FLAKE#$HOSTNAME"
+else
+  echo "==> darwin-rebuild not on PATH yet; using nix run (first install)"
+  sudo nix run nix-darwin#darwin-rebuild -- switch --flake "$FLAKE#$HOSTNAME"
+fi
 
 echo ""
 echo "✓ Bootstrap complete. Use 'darwin-rebuild switch --flake ~/dot-files/nix#$HOSTNAME' for future updates."

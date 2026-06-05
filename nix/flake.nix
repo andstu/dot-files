@@ -24,6 +24,9 @@
       ...
     }:
     let
+      # Repo root (parent of this flake); config trees live outside nix/
+      dotfilesRoot = ../.;
+
       mkDarwin =
         {
           hostname,
@@ -32,6 +35,7 @@
         }:
         nix-darwin.lib.darwinSystem {
           inherit system;
+          specialArgs = { inherit dotfilesRoot; };
           modules = [
             ./hosts/${hostname}/configuration.nix
             home-manager.darwinModules.home-manager
@@ -39,6 +43,7 @@
               nixpkgs.overlays = [ nur.overlays.default ];
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit dotfilesRoot; };
               home-manager.users.${user} = import ./hosts/${hostname}/home.nix;
             }
           ];
@@ -66,6 +71,7 @@
       homeConfigurations = {
         "andstu" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = { inherit dotfilesRoot; };
           modules = [ ./hosts/wsl/home.nix ];
         };
       };

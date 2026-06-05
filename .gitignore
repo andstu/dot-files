@@ -16,3 +16,14 @@ tmux/.local/bin/uvicorn
 
 # Plugin binaries (installed via curl, not checked in)
 zellij/.config/zellij/plugins/*.wasm
+
+# Cursor runtime state (cursor/ stows to ~/.cursor; only hooks + custom skills are versioned)
+cursor/.cursor/*
+!cursor/.cursor/hooks.json
+!cursor/.cursor/hooks/
+cursor/.cursor/hooks/*
+!cursor/.cursor/hooks/zellij-notify.sh
+!cursor/.cursor/skills/
+cursor/.cursor/skills/*
+!cursor/.cursor/skills/pr-review/
+!cursor/.cursor/skills/spawn-agents/

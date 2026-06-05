@@ -4,6 +4,7 @@
 {
   imports = [
     ../../modules/home/cli.nix
+    ../../modules/home/dotfiles.nix
     ../../modules/home/mac-gui.nix
     ../../modules/home/work.nix
     ../../modules/home/macos.nix

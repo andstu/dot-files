@@ -12,11 +12,11 @@
     bat
     jq
 
+    # GitHub
+    gh
+
     # System
     htop
-
-    # Dotfiles
-    stow
 
     # Editor / multiplexer
     neovim
@@ -34,10 +34,4 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
-    oh-my-zsh = {
-      enable = true;
-    };
-  };
 }
