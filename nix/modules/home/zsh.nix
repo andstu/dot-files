@@ -18,7 +18,7 @@ in
       EDITOR = "nvim";
     };
 
-    initExtra = ''
+    initContent = ''
       export PATH="$PATH:/opt/nvim-linux64/bin"
       export PATH="$HOME/.local/bin:$PATH"
       export PATH="$HOME/.opencode/bin:$PATH"

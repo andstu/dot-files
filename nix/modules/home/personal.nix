@@ -17,9 +17,12 @@ in
 
   programs.ssh = {
     enable = true;
-    matchBlocks."github.com" = {
-      identitiesOnly = true;
-      identityFile = [ sshKeyPath ];
+    enableDefaultConfig = false;
+    settings."github.com" = {
+      HostName = "github.com";
+      User = "git";
+      IdentitiesOnly = true;
+      IdentityFile = sshKeyPath;
     };
   };
 

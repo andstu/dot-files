@@ -43,6 +43,7 @@
               nixpkgs.overlays = [ nur.overlays.default ];
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-bak";
               home-manager.extraSpecialArgs = { inherit dotfilesRoot; };
               home-manager.users.${user} = import ./hosts/${hostname}/home.nix;
             }
@@ -72,7 +73,12 @@
         "andstu" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit dotfilesRoot; };
-          modules = [ ./hosts/wsl/home.nix ];
+          modules = [
+            {
+              home-manager.backupFileExtension = "hm-bak";
+            }
+            ./hosts/wsl/home.nix
+          ];
         };
       };
     };
