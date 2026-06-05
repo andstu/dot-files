@@ -15,6 +15,14 @@ in
     fi
   '';
 
+  programs.ssh = {
+    enable = true;
+    matchBlocks."github.com" = {
+      identitiesOnly = true;
+      identityFile = [ sshKeyPath ];
+    };
+  };
+
   programs.git = {
     settings = {
       user = {
