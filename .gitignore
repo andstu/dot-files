@@ -14,6 +14,10 @@ tmux/.local/bin/python3.11
 tmux/.local/bin/stickytape
 tmux/.local/bin/uvicorn
 
+# Kubernetes / Talos credentials (local only)
+kube/.kube/config
+kube/.talos/config
+
 # Plugin binaries (installed via curl, not checked in)
 zellij/.config/zellij/plugins/*.wasm
 

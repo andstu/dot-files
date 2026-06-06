@@ -15,6 +15,10 @@
     # GitHub
     gh
 
+    # Kubernetes
+    kubectl
+    talosctl
+
     # System
     htop
 

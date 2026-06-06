@@ -12,6 +12,7 @@ let
   stowPackages = [
     "cursor"
     "ghostty"
+    "kube"
     "nvim"
     "zellij"
     "tmux"
@@ -25,6 +26,8 @@ let
     ".config/zellij"
     ".config/nvim"
     ".config/fontconfig"
+    ".kube"
+    ".talos"
     ".tmux.conf"
   ];
 in
