@@ -24,6 +24,12 @@ in
       IdentitiesOnly = true;
       IdentityFile = sshKeyPath;
     };
+    settings."gitlab.com" = {
+      HostName = "gitlab.com";
+      User = "git";
+      IdentitiesOnly = true;
+      IdentityFile = sshKeyPath;
+    };
   };
 
   programs.git = {
