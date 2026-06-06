@@ -18,6 +18,9 @@ tmux/.local/bin/uvicorn
 kube/.kube/config
 kube/.talos/config
 
+# WireGuard private keys (local only)
+wireguard/.config/wireguard/*.conf
+
 # Plugin binaries (installed via curl, not checked in)
 zellij/.config/zellij/plugins/*.wasm
 

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CONF="$HOME/.config/wireguard/shipyards.conf"
+
+if [[ ! -f "$CONF" ]]; then
+  echo "Missing $CONF" >&2
+  exit 1
+fi
+
+if [[ $# -lt 1 ]]; then
+  echo "Usage: wg-shipyards {up|down|save|strip}" >&2
+  exit 1
+fi
+
+exec sudo wg-quick "$1" "$CONF" "${@:2}"

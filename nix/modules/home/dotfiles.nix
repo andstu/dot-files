@@ -13,6 +13,7 @@ let
     "cursor"
     "ghostty"
     "kube"
+    "wireguard"
     "nvim"
     "zellij"
     "tmux"
@@ -28,6 +29,7 @@ let
     ".config/fontconfig"
     ".kube"
     ".talos"
+    ".config/wireguard"
     ".tmux.conf"
   ];
 in

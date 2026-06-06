@@ -19,6 +19,9 @@
     kubectl
     talosctl
 
+    # VPN
+    wireguard-tools
+
     # System
     htop
 
