@@ -11,6 +11,7 @@ let
   # Not stowed: git/ (HM programs.git), zsh/ (HM programs.zsh + home.file helpers in zsh.nix).
   stowPackages = [
     "cursor"
+    "ghostty"
     "nvim"
     "zellij"
     "tmux"
@@ -20,6 +21,7 @@ let
   # Paths previously deployed by HM home.file; remove non-symlinks so stow can link.
   migratePaths = [
     ".cursor"
+    ".config/ghostty"
     ".config/zellij"
     ".config/nvim"
     ".config/fontconfig"

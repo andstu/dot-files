@@ -6,8 +6,12 @@ load_plugins {
     }
 }
 
+copy_command "pbcopy"
+
 keybinds {
     shared {
+        bind "Super c" { Copy; }
+        bind "Alt c" { Copy; }
         bind "Alt t" { MoveFocus "Down"; }
         bind "Ctrl f" {
             Run "zellij-sessionizer" {

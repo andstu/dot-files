@@ -1,0 +1,6 @@
+# Cmd+C/V inside Zellij: Ghostty only handles copy/paste when it has a terminal
+# selection (it won't while Zellij manages selection). Otherwise the key passes
+# through to Zellij as Super+c/v. performable: also drops the macOS menu shortcut
+# that causes the stray "c" bug (ghostty-org/ghostty#8600).
+keybind = performable:super+c=copy_to_clipboard:mixed
+keybind = performable:super+v=paste_from_clipboard
