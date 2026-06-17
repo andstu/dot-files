@@ -18,6 +18,9 @@ tmux/.local/bin/uvicorn
 kube/.kube/config
 kube/.talos/config
 
+# Hermes secrets (local only)
+hermes/.hermes/.env
+
 # WireGuard private keys (local only)
 wireguard/.config/wireguard/*.conf
 

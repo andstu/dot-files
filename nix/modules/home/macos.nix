@@ -1,8 +1,16 @@
 { pkgs, lib, ... }:
 
-# macOS-only: create Finder aliases in ~/Applications so Spotlight and
+# macOS-only: Homebrew PATH, Finder aliases in ~/Applications so Spotlight and
 # Launchpad can find GUI apps installed by Home Manager.
 {
+  # nix-darwin writes /etc/paths.d/homebrew but path_helper never runs in HM zsh.
+  home.sessionPath = [
+    "/opt/homebrew/bin"
+    "/opt/homebrew/sbin"
+    "/usr/local/bin"
+    "/usr/local/sbin"
+  ];
+
   home.activation.aliasHomeManagerApps = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     srcDir="$HOME/Applications/Home Manager Apps"
     dstDir="$HOME/Applications"

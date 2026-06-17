@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,6 +25,7 @@
       nix-darwin,
       home-manager,
       nur,
+      hermes-agent,
       ...
     }:
     let
@@ -40,7 +45,10 @@
             ./hosts/${hostname}/configuration.nix
             home-manager.darwinModules.home-manager
             {
-              nixpkgs.overlays = [ nur.overlays.default ];
+              nixpkgs.overlays = [
+                nur.overlays.default
+                hermes-agent.overlays.default
+              ];
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "hm-bak";
@@ -71,7 +79,13 @@
       # Apply with: home-manager switch --flake .#andstu
       homeConfigurations = {
         "andstu" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            overlays = [
+              nur.overlays.default
+              hermes-agent.overlays.default
+            ];
+          };
           extraSpecialArgs = { inherit dotfilesRoot; };
           modules = [
             {

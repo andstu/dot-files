@@ -19,6 +19,9 @@
     kubectl
     talosctl
 
+    # Hermes Agent CLI (shipyards gateway client)
+    hermes-agent
+
     # VPN
     wireguard-tools
 

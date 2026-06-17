@@ -7,6 +7,7 @@
     ../../modules/home/mac-gui.nix
     ../../modules/home/gui.nix
     ../../modules/home/personal.nix
+    ../../modules/home/hermes.nix
     ../../modules/home/macos.nix
   ];
 
