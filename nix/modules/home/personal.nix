@@ -30,6 +30,12 @@ in
       IdentitiesOnly = true;
       IdentityFile = sshKeyPath;
     };
+    settings."git.andstu.xyz" = {
+      HostName = "git.andstu.xyz";
+      User = "git";
+      IdentitiesOnly = true;
+      IdentityFile = sshKeyPath;
+    };
   };
 
   programs.git = {
