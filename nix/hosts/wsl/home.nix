@@ -6,6 +6,7 @@
     ../../modules/home/dotfiles.nix
     ../../modules/home/personal.nix
     ../../modules/home/hermes.nix
+    ../../modules/home/gcx.nix
   ];
 
   home.username = "andstu";

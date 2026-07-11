@@ -12,8 +12,9 @@
     bat
     jq
 
-    # GitHub
+    # GitHub / Forgejo
     gh
+    forgejo-cli
 
     # Kubernetes
     kubectl
@@ -21,6 +22,9 @@
 
     # Hermes Agent CLI (shipyards gateway client)
     hermes-agent
+
+    # Observability
+    gcx
 
     # VPN
     wireguard-tools

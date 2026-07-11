@@ -21,6 +21,9 @@ kube/.talos/config
 # Hermes secrets (local only)
 hermes/.hermes/.env
 
+# gcx secrets (local only)
+gcx/.config/gcx/.env
+
 # WireGuard private keys (local only)
 wireguard/.config/wireguard/*.conf
 

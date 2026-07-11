@@ -8,6 +8,7 @@
     ../../modules/home/gui.nix
     ../../modules/home/personal.nix
     ../../modules/home/hermes.nix
+    ../../modules/home/gcx.nix
     ../../modules/home/macos.nix
   ];
 
